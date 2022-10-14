@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="CryproExplorer.MVVM.View.DetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CryproExplorer.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid Background="#222222">
+        <StackPanel DataContext="{Binding Asset}">
+            <Grid Height="75" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Grid.Row="0"
+                           Foreground="White"
+                           FontSize="50"
+                           Text="{Binding Name}"
+                           VerticalAlignment="Bottom"
+                           Margin="10"/>
+
+                <TextBlock Grid.Column="1" 
+                           Grid.Row="0"
+                           Foreground="Gray"
+                           FontSize="40"
+                           Text="{Binding AssetId}"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Left"
+                           Margin="10"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Price usd"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="20, 10, 10, 10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="1"
+                           Text="Change 1h"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="2"
+                           Text="Change 24h"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="3"
+                           Text="Change 7d"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="4"
+                           Text="Volume 24h"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10, 10, 20, 10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"/>
+                <Line   
+                    Grid.Row="1"
+                    Grid.ColumnSpan="5"
+                    X1="0" Y1="0"
+                    X2="800" Y2="0"
+                    Stroke="#272537"
+                    StrokeThickness="4"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="{Binding Price, StringFormat=C}"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="20, 10, 10, 10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="1"
+                           Text="{Binding Change1H, StringFormat={}{0:#0.00'%'}}"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="2"
+                           Text="{Binding Change24H, StringFormat={}{0:#0.00'%'}}"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="2" 
+                           Grid.Column="3"
+                           Text="{Binding Change7D, StringFormat={}{0:#0.00'%'}}"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Grid.Row="2"
+                           Grid.Column="4"
+                           Text="{Binding Volume24H, StringFormat=C}"
+                           FontSize="16"
+                           Foreground="White"
+                           Margin="10, 10, 20, 10"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid Height="75" VerticalAlignment="Top">
+                <TextBlock Grid.Column="0"
+                           Grid.Row="0"
+                           Foreground="White"
+                           FontSize="40"
+                           Text="{Binding Name, StringFormat=Markets for: {0}}"
+                           VerticalAlignment="Bottom"
+                           Margin="10"/>
+            </Grid>
+            <Grid Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Pair" Grid.Column="0" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+                
+                <TextBlock Text="Price" Grid.Column="1" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+                
+                <TextBlock Text="Price Unconverted" 
+                           Grid.Column="2" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+                
+                <TextBlock Text="Change 24h" 
+                           Grid.Column="3" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+                <TextBlock Text="Spread" Grid.Column="4" VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" Foreground="White"/>
+                
+                <TextBlock Text="Volume 24H" 
+                           Grid.Column="5" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+                
+                <TextBlock Text="Exchange" 
+                           Grid.Column="6" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Center" 
+                           Foreground="White"/>
+            </Grid>
+        </StackPanel>
+
+        <DockPanel Margin="0,270,0,0">
+            <ListView Background="#222222"
+                  ScrollViewer.CanContentScroll="False"
+                  ItemsSource="{Binding Markets}"
+                  Style="{StaticResource MarketsListStyle}"/>
+        </DockPanel>
+
+    </Grid>
+</UserControl>
